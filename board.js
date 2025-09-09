@@ -18,12 +18,12 @@ export class Board{
         for (let i = 0; i < 3; i++){
             let arrRow = this.boardArr.slice(3*i,3*i + 3);
             let arrColum = [this.boardArr[i],this.boardArr[i + 3],this.boardArr[i + 6]];
-        if (arraysIguales(arrRow,arrWin)){console.log(marker +" gana en fila " );return true;}
+        if (arraysIguales(arrRow,arrWin)){alert(marker +" Gana " );return true;}
             
-        if (arraysIguales(arrColum,arrWin)){console.log(marker + "gana en columna");return true;}}
+        if (arraysIguales(arrColum,arrWin)){alert(marker + " Gana");return true;}}
         let diag1 = [this.boardArr[0],this.boardArr[4],this.boardArr[8]];
         let diag2 = [this.boardArr[2],this.boardArr[4],this.boardArr[6]];
-        if (arraysIguales(diag1,arrWin) || arraysIguales(diag2,arrWin)){console.log(marker + "gana diagonal")
+        if (arraysIguales(diag1,arrWin) || arraysIguales(diag2,arrWin)){alert(marker + " Gana")
             ;return true}
         return false;
     }

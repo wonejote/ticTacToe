@@ -1,9 +1,12 @@
 import { Turnos } from "./turnos.js";
 
 const container = document.querySelector(".container");
-container.style.backgroundColor = "blue";
+const contadorJugador1GUI = document.querySelector(".contadorJugador1");
+const contadorJugador2GUI = document.querySelector(".contadorJugador2");
+let contador1 = 0;
+let contador2 = 0;
 
-const game = new Turnos();
+let game = new Turnos();
 
 for (let i = 0; i < 9; i++){
     let casilla = document.createElement("div");
@@ -17,7 +20,28 @@ casillas.forEach(c => {
     c.addEventListener("click",handler)
 })
 
+
+
 function handler(event){
-    game.play(event.target.dataset.pos);
-    game.board.displayBoard();
+    if (!game.win) {
+        if (game.play(event.target.dataset.pos)) {
+            event.target.classList.add(game.currentMarker);
+
+            if (game.win) {
+                actualizarContador(game.currentMarker);
+            }
+        }
+    }
 }
+
+function actualizarContador(){
+    game.currentMarker == "x" ? contador1++ : contador2++;
+    contadorJugador1GUI.innerText = contador1;
+    contadorJugador2GUI.innerText = contador2;
+}
+//----------------------
+const boton = document.querySelector("button");
+boton.addEventListener("click",()=>{
+    game = new Turnos();
+    casillas.forEach(c => c.className = "casilla");
+})
