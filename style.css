@@ -49,11 +49,11 @@ h1 {
 }
 
 .x {
-  background-image: url("/x.png");
+  background-image: url("./x.png");
 }
 
 .o {
-  background-image: url("/o.png");
+  background-image: url("./o.png");
 }
 
 button.reset {
