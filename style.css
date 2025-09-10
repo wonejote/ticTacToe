@@ -2,18 +2,23 @@ body {
   font-family: Arial, sans-serif;
   background: linear-gradient(135deg, #74ebd5, #ACB6E5);
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  flex-direction: column;
+  min-height: 100vh;
   margin: 0;
 }
 
 main {
+  flex: 1; /* ocupa el espacio disponible */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   background: #ffffffdd;
   padding: 20px 40px;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  margin: 0 auto; /* centra horizontal */
 }
 
 h1 {
@@ -80,7 +85,12 @@ button.reset:hover {
   margin-bottom: 20px;
   font-size: 1.2em;
   font-weight: bold;
+
+  width: 100%;      
+  max-width: 400px;   
+  box-sizing: border-box;
 }
+
 
 .player {
   flex: 1;
@@ -94,3 +104,45 @@ button.reset:hover {
 .player2 {
   color: #457b9d; /* azul para la O */
 }
+
+footer, header {
+  text-align: center;
+  padding: 15px;
+  background: #00334e;
+  font-size: 0.95rem;
+  color: #aad8d3;
+  width: 100%;
+  margin-top: 40px;
+}
+header{
+  margin-bottom: 40px;
+  margin-top: 0px;
+}
+header h1 {
+  margin-bottom: 15px;
+  color: #aad8d3;
+}
+footer a {
+  color: #aad8d3;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease;
+}
+
+footer a:hover {
+  color: #ffffff;
+}
+
+.github-icon {
+  width: 18px;
+  height: 18px;
+  filter: invert(80%); /* aclara el logo sobre fondo oscuro */
+}
+footer p, header h1{
+  display: flex;
+  justify-self: center;
+  gap: 6px;
+}
+
